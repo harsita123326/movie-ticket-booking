@@ -1,4 +1,4 @@
-const API = "http://localhost:8080/api/admin";
+const API = "https://movie-ticket-booking-backend-9jof.onrender.com/api";
 let auth = { username: null, role: null, permissions: [] };
 
 document.getElementById("loginBtn").addEventListener("click", async () => {
