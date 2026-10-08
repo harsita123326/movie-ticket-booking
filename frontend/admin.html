@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>🛠️ Admin Panel — Movie Booking</title>
+<link rel="stylesheet" href="admin.css"/>
+</head>
+<body>
+
+<div id="loginScreen" class="login-screen">
+    <div class="login-box">
+        <h1>🛠️ Admin Panel</h1>
+        <p class="muted">Movie Ticket Booking — Management Console</p>
+        <input type="text" id="adminUser" placeholder="Username" value="admin"/>
+        <input type="password" id="adminPass" placeholder="Password" value="admin123"/>
+        <select id="adminRole">
+            <option value="ADMIN">Administrator</option>
+            <option value="MANAGER">Manager</option>
+        </select>
+        <button id="loginBtn" class="primary-btn">Login</button>
+        <p id="loginError" class="error"></p>
+        <p class="hint">Demo → admin/admin123 | manager/manager123</p>
+    </div>
+</div>
+
+<div id="dashboard" class="dashboard hidden">
+    <aside class="sidebar">
+        <h2>🎬 Admin</h2>
+        <nav>
+            <a class="nav-item active" data-tab="overview">📊 Overview</a>
+            <a class="nav-item" data-tab="bookings">🎟️ Bookings</a>
+            <a class="nav-item" data-tab="analytics">📈 Analytics</a>
+            <a class="nav-item" data-tab="tools">⚙️ Tools</a>
+        </nav>
+        <div class="user-info">
+            <p><b id="loggedUser">admin</b></p>
+            <p class="muted" id="loggedRole">ADMIN</p>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+    </aside>
+
+    <main class="main">
+        <section id="tab-overview" class="tab active">
+            <h1>Dashboard Overview</h1>
+            <div class="kpi-grid">
+                <div class="kpi-card"><p class="kpi-label">Total Bookings</p><p class="kpi-value" id="kpiTotal">0</p></div>
+                <div class="kpi-card"><p class="kpi-label">Confirmed</p><p class="kpi-value green" id="kpiConfirmed">0</p></div>
+                <div class="kpi-card"><p class="kpi-label">Cancelled</p><p class="kpi-value red" id="kpiCancelled">0</p></div>
+                <div class="kpi-card"><p class="kpi-label">Total Revenue</p><p class="kpi-value gold" id="kpiRevenue">₹0</p></div>
+            </div>
+            <h2>Recent Bookings</h2>
+            <table class="data-table">
+                <thead><tr><th>ID</th><th>Movie</th><th>Seats</th><th>Amount</th><th>Status</th></tr></thead>
+                <tbody id="recentBookingsBody"></tbody>
+            </table>
+        </section>
+
+        <section id="tab-bookings" class="tab">
+            <h1>All Bookings</h1>
+            <div class="filter-bar">
+                <label>Filter by Status:</label>
+                <select id="statusFilter">
+                    <option value="">All</option>
+                    <option value="CONFIRMED">Confirmed</option>
+                    <option value="CANCELLED">Cancelled</option>
+                </select>
+                <button id="refreshBtn" class="secondary-btn">🔄 Refresh</button>
+            </div>
+            <table class="data-table">
+                <thead><tr><th>ID</th><th>Movie</th><th>Show</th><th>Type</th>
+                <th>Seats</th><th>Add-ons</th><th>Amount</th><th>Payment</th>
+                <th>Status</th><th>Action</th></tr></thead>
+                <tbody id="bookingsBody"></tbody>
+            </table>
+        </section>
+
+        <section id="tab-analytics" class="tab">
+            <h1>Analytics</h1>
+            <div class="analytics-grid">
+                <div class="chart-card"><h3>Bookings by Ticket Type</h3><div id="chartTicketType" class="bar-chart"></div></div>
+                <div class="chart-card"><h3>Bookings by Payment Method</h3><div id="chartPayment" class="bar-chart"></div></div>
+                <div class="chart-card"><h3>Bookings by Movie</h3><div id="chartMovie" class="bar-chart"></div></div>
+            </div>
+        </section>
+
+        <section id="tab-tools" class="tab">
+            <h1>Admin Tools</h1>
+            <div class="tool-card">
+                <h3>📥 Export Bookings</h3>
+                <p>Download all bookings as CSV (Visitor Pattern).</p>
+                <button id="exportCsvBtn" class="primary-btn">Download CSV</button>
+            </div>
+            <div class="tool-card danger">
+                <h3>⚠️ Reset All Bookings</h3>
+                <p>Permanently deletes every booking.</p>
+                <button id="resetBtn" class="danger-btn">Reset Database</button>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

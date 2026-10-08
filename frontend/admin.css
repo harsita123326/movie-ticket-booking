@@ -1,0 +1,102 @@
+* { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+body { background: #14141f; color: #e4e4e4; min-height: 100vh; }
+.hidden { display: none !important; }
+.muted { color: #888; }
+.error { color: #ff5252; margin-top: 10px; min-height: 20px; font-size: .9rem; }
+.hint { color: #666; font-size: .8rem; margin-top: 15px; text-align: center; }
+
+.login-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh;
+    background: radial-gradient(circle at 30% 30%, #2d2d44, #14141f); }
+.login-box { background: #1e1e2f; padding: 40px; border-radius: 14px; width: 360px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.6); border: 1px solid #2e2e48; }
+.login-box h1 { color: #ffcc00; text-align: center; margin-bottom: 5px; }
+.login-box .muted { text-align: center; margin-bottom: 25px; font-size: .9rem; }
+.login-box input, .login-box select { width: 100%; padding: 12px; margin-bottom: 12px;
+    background: #14141f; color: #eee; border: 1px solid #333; border-radius: 8px; font-size: 1rem; }
+
+.primary-btn { width: 100%; padding: 12px; background: linear-gradient(90deg, #ffcc00, #ff8c00);
+    color: #1a1a1a; border: none; border-radius: 8px; font-size: 1rem; font-weight: bold;
+    cursor: pointer; transition: transform .15s; }
+.primary-btn:hover { transform: translateY(-2px); }
+
+.dashboard { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+
+.sidebar { background: #1a1a28; padding: 24px 18px; border-right: 1px solid #2a2a3f;
+    display: flex; flex-direction: column; }
+.sidebar h2 { color: #ffcc00; margin-bottom: 30px; font-size: 1.3rem; }
+
+.nav-item { display: block; padding: 12px 14px; border-radius: 8px; color: #bbb;
+    text-decoration: none; cursor: pointer; margin-bottom: 6px; transition: .2s; font-size: .95rem; }
+.nav-item:hover { background: #24243a; color: #fff; }
+.nav-item.active { background: #ffcc00; color: #1a1a1a; font-weight: bold; }
+
+.user-info { margin-top: auto; padding-top: 20px; border-top: 1px solid #2a2a3f; font-size: .9rem; }
+.logout-btn { margin-top: 10px; width: 100%; padding: 8px; background: #2a2a3f;
+    color: #ff5252; border: 1px solid #3a3a55; border-radius: 6px; cursor: pointer; font-size: .85rem; }
+.logout-btn:hover { background: #3a3a55; }
+
+.main { padding: 30px 40px; overflow-y: auto; }
+.tab { display: none; }
+.tab.active { display: block; animation: fade .25s; }
+@keyframes fade { from{opacity:0;transform:translateY(5px);} to{opacity:1;transform:none;} }
+.main h1 { color: #ffcc00; margin-bottom: 25px; font-size: 1.6rem; }
+.main h2 { color: #ffcc00; margin: 30px 0 15px; font-size: 1.15rem; }
+
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px; margin-bottom: 15px; }
+.kpi-card { background: #1e1e2f; padding: 22px; border-radius: 12px;
+    border: 1px solid #2e2e48; transition: transform .2s; }
+.kpi-card:hover { transform: translateY(-3px); border-color: #ffcc00; }
+.kpi-label { color: #999; font-size: .85rem; text-transform: uppercase; letter-spacing: 1px; }
+.kpi-value { font-size: 2rem; font-weight: bold; margin-top: 8px; }
+.kpi-value.green { color: #4caf50; }
+.kpi-value.red   { color: #ff5252; }
+.kpi-value.gold  { color: #ffcc00; }
+
+.data-table { width: 100%; border-collapse: collapse; background: #1e1e2f;
+    border-radius: 10px; overflow: hidden; font-size: .9rem; }
+.data-table th, .data-table td { padding: 12px 14px; text-align: left;
+    border-bottom: 1px solid #2a2a3f; }
+.data-table th { background: #24243a; color: #ffcc00; font-weight: 600;
+    text-transform: uppercase; font-size: .75rem; letter-spacing: 1px; }
+.data-table tr:hover td { background: #22223a; }
+
+.status-badge { padding: 4px 10px; border-radius: 20px; font-size: .75rem; font-weight: bold; }
+.status-badge.CONFIRMED { background: #1e4d2b; color: #4caf50; }
+.status-badge.CANCELLED { background: #4d1e1e; color: #ff5252; }
+
+.filter-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+    background: #1e1e2f; padding: 14px 18px; border-radius: 10px; border: 1px solid #2e2e48; }
+.filter-bar select { padding: 8px 12px; background: #14141f; color: #eee;
+    border: 1px solid #333; border-radius: 6px; }
+
+.secondary-btn { padding: 8px 16px; background: #2a2a3f; color: #ffcc00;
+    border: 1px solid #3a3a55; border-radius: 6px; cursor: pointer; font-size: .85rem; }
+.secondary-btn:hover { background: #3a3a55; }
+
+.cancel-btn { padding: 5px 12px; background: #4d1e1e; color: #ff5252;
+    border: 1px solid #6a2a2a; border-radius: 6px; cursor: pointer; font-size: .8rem; }
+.cancel-btn:hover { background: #6a2a2a; }
+
+.analytics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.chart-card { background: #1e1e2f; padding: 22px; border-radius: 12px; border: 1px solid #2e2e48; }
+.chart-card h3 { color: #ffcc00; margin-bottom: 20px; font-size: 1rem; }
+.bar-chart { display: flex; flex-direction: column; gap: 12px; }
+.bar-row { display: flex; align-items: center; gap: 10px; }
+.bar-label { width: 90px; font-size: .8rem; color: #aaa; text-align: right; }
+.bar-track { flex: 1; background: #14141f; height: 22px; border-radius: 11px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, #ffcc00, #ff8c00);
+    border-radius: 11px; transition: width .5s ease; }
+.bar-value { width: 40px; text-align: right; font-size: .85rem;
+    color: #ffcc00; font-weight: bold; }
+
+.tool-card { background: #1e1e2f; padding: 22px; border-radius: 12px;
+    border: 1px solid #2e2e48; margin-bottom: 20px; }
+.tool-card h3 { color: #ffcc00; margin-bottom: 8px; font-size: 1.05rem; }
+.tool-card p { color: #aaa; margin-bottom: 15px; font-size: .9rem; }
+.tool-card .primary-btn { width: auto; padding: 10px 24px; }
+.tool-card.danger { border-color: #6a2a2a; }
+.tool-card.danger h3 { color: #ff5252; }
+.danger-btn { padding: 10px 24px; background: #ff5252; color: #fff; border: none;
+    border-radius: 8px; cursor: pointer; font-weight: bold; }
+.danger-btn:hover { background: #d63c3c; }

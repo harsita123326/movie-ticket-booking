@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>🎬 Movie Ticket Booking</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="container">
+    <h1>🎬 Movie Ticket Booking</h1>
+    <p class="subtitle">Spring Boot + H2 + Design Patterns</p>
+
+    <section class="card">
+        <h2>1️⃣ Select Movie</h2>
+        <select id="movieSelect"></select>
+        <div id="showList" class="show-list"></div>
+    </section>
+
+    <section class="card">
+        <h2>2️⃣ Ticket Type</h2>
+        <div class="options">
+            <label><input type="radio" name="ticketType" value="REGULAR" checked/> Regular</label>
+            <label><input type="radio" name="ticketType" value="PREMIUM"/> Premium (×1.5)</label>
+            <label><input type="radio" name="ticketType" value="VIP"/> VIP (×2.5)</label>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>3️⃣ Select Seats</h2>
+        <div id="seatGrid" class="seat-grid"></div>
+        <p>Selected: <span id="selectedSeats">None</span></p>
+    </section>
+
+    <section class="card">
+        <h2>4️⃣ Add-ons (Decorator Pattern)</h2>
+        <label><input type="checkbox" id="popcorn"/> 🍿 Popcorn (+₹250)</label>
+        <label><input type="checkbox" id="drink"/> 🥤 Drink (+₹150)</label>
+    </section>
+
+    <section class="card">
+        <h2>5️⃣ Payment (Strategy Pattern)</h2>
+        <select id="paymentMethod">
+            <option value="CREDIT_CARD">Credit Card</option>
+            <option value="UPI">UPI</option>
+            <option value="WALLET">Wallet</option>
+        </select>
+        <input type="email" id="userEmail" placeholder="Email"/>
+        <input type="text" id="userPhone" placeholder="Phone"/>
+    </section>
+
+    <button id="bookBtn" class="book-btn">🎟️ Book Now</button>
+    <section id="result" class="card result hidden"></section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
