@@ -1,4 +1,4 @@
-const API = "http://localhost:8080/api";
+const API = "https://movie-ticket-booking-backend-9jof.onrender.com/api";
 let selectedMovie=null,selectedShow=null,selectedSeats=[],movies=[];
 
 window.addEventListener("DOMContentLoaded", async ()=>{
